@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alcoholic Items Economic Loss Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 8px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Alcoholic Items Economic Loss Calculator</h2>
+
+  <label for="cigarettePrice">Price of a Cigarette in USD:</label>
+  <input type="number" id="cigarettePrice" placeholder="Enter price">
+
+  <label for="dailyCigaretteConsumption">Daily Cigarette Consumption:</label>
+  <input type="number" id="dailyCigaretteConsumption" placeholder="Enter quantity">
+
+  <label for="weeklyAlcoholCost">Cost for Weekly Alcohol Consumption in USD:</label>
+  <input type="number" id="weeklyAlcoholCost" placeholder="Enter cost">
+
+  <button onclick="calculateMonthlyEconomicLoss()">Calculate Monthly Economic Loss</button>
+
+  <h3>Result:</h3>
+  <p id="result">Monthly Economic Loss for Alcoholic Items: $0</p>
+
+  <script>
+    function calculateMonthlyEconomicLoss() {
+      // Get input values
+      const cigarettePrice = parseFloat(document.getElementById("cigarettePrice").value) || 0;
+      const dailyCigaretteConsumption = parseFloat(document.getElementById("dailyCigaretteConsumption").value) || 0;
+      const weeklyAlcoholCost = parseFloat(document.getElementById("weeklyAlcoholCost").value) || 0;
+
+      // Calculate total monthly economic loss for alcoholic items
+      const monthlyCigaretteCost = cigarettePrice * dailyCigaretteConsumption * 30; // Assuming 30 days in a month
+      const monthlyAlcoholCost = weeklyAlcoholCost * 4; // Assuming 4 weeks in a month
+      const totalMonthlyEconomicLoss = monthlyCigaretteCost + monthlyAlcoholCost;
+
+      // Display result
+      document.getElementById("result").innerText = `Monthly Economic Loss for Alcoholic Items: $${totalMonthlyEconomicLoss.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
+
